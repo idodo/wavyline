@@ -60,9 +60,9 @@
         
         addBackground(@"opacity bg", ccp(m_size.width/2, m_size.height/2), self, 0);
         
-        addLabel(ccp(m_size.width/2, 362*g_fy), self, @"Game Over", ccWHITE, 44*g_fh, 1);
-        addLabel(ccp(m_size.width/2, 265*g_fh+g_fMaginIphone5), self, [NSString stringWithFormat:@"Score: %d", g_nScore], ccWHITE, 22*g_fh, 1);
-        addLabel(ccp(m_size.width/2, 224*g_fh+g_fMaginIphone5), self, [NSString stringWithFormat:@"Best: %d", g_gameInfo.bestScore], ccWHITE, 22*g_fh, 1);
+        addLabel(ccp(m_size.width/2, 362*g_fy), self, @"游戏结束", ccWHITE, 44*g_fh, 1);
+        addLabel(ccp(m_size.width/2, 265*g_fh+g_fMaginIphone5), self, [NSString stringWithFormat:@"当前得分: %d", g_nScore], ccWHITE, 22*g_fh, 1);
+        addLabel(ccp(m_size.width/2, 224*g_fh+g_fMaginIphone5), self, [NSString stringWithFormat:@"最高分: %d", g_gameInfo.bestScore], ccWHITE, 22*g_fh, 1);
         
         [self createMenu];
         
@@ -77,12 +77,12 @@
 
 -(void) createMenu
 {
-    m_retryItem = addTextButton(@"Try Again", ccp(m_size.width/2, 158*g_fh+g_fMaginIphone5), 28*g_fh, ccYELLOW, self, @selector(actionRetry:));
-    m_scoreItem = addTextButton(@"High Score", ccp(m_size.width/2, 123*g_fh+g_fMaginIphone5), 28*g_fh, ccc3(0, 240, 255), self, @selector(actionScore:));
-    m_adsItem = addTextButton(@"Remove Ads", ccp(100*g_fx, 88*g_fh+g_fMaginIphone5), 28*g_fh, ccc3(0, 255, 90), self, @selector(actionAds:));
-    m_restorItem = addTextButton(@"Restore", ccp(246*g_fx, 88*g_fh+g_fMaginIphone5), 28*g_fh, ccc3(0, 255, 90), self, @selector(actionRestore:));
-    m_restorItem = addTextButton(@"earn coins", ccp(m_size.width/2, 53*g_fh+g_fMaginIphone5), 28*g_fh, ccc3(0, 240, 255), self, @selector(actionRestore:));
-    m_soundItem = addToggleButton(@"sound", ccp(292*g_fx, 455*g_fh+2*g_fMaginIphone5), self, @selector(actionSound:));
+    m_retryItem = addTextButton(@"再玩一次", ccp(m_size.width/2, 158*g_fh+g_fMaginIphone5), 28*g_fh, ccYELLOW, self, @selector(actionRetry:));
+    m_scoreItem = addTextButton(@"得分记录", ccp(m_size.width/2, 123*g_fh+g_fMaginIphone5), 28*g_fh, ccc3(0, 240, 255), self, @selector(actionScore:));
+    m_adsItem = addTextButton(@"移除广告", ccp(m_size.width/2, 88*g_fh+g_fMaginIphone5), 28*g_fh, ccc3(0, 255, 90), self, @selector(actionAds:));
+    m_restorItem = addTextButton(@"恢复", ccp(246*g_fx, 88*g_fh+g_fMaginIphone5), 28*g_fh, ccc3(0, 255, 90), self, @selector(actionRestore:));
+    m_restorItem = addTextButton(@"赚金币", ccp(m_size.width/2, 53*g_fh+g_fMaginIphone5), 28*g_fh, ccc3(0, 240, 255), self, @selector(actionRestore:));
+    m_soundItem = addToggleButton(@"声音", ccp(292*g_fx, 455*g_fh+2*g_fMaginIphone5), self, @selector(actionSound:));
     
     CCMenu *menu = [CCMenu menuWithItems:m_retryItem, m_scoreItem, m_adsItem, m_restorItem, m_soundItem, nil];
     menu.position = ccp(0, 0);
